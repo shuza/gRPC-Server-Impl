@@ -1,6 +1,9 @@
-package com.example.learn;
+package com.example.learn.services;
 
 
+import com.example.learn.HelloRequest;
+import com.example.learn.HelloResponse;
+import com.example.learn.HelloServiceGrpc;
 import io.grpc.stub.StreamObserver;
 
 public class HelloServiceImp extends HelloServiceGrpc.HelloServiceImplBase {

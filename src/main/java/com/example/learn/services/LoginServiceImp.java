@@ -1,5 +1,9 @@
-package com.example.learn;
+package com.example.learn.services;
 
+import com.example.learn.LoginRequest;
+import com.example.learn.LoginResponse;
+import com.example.learn.LoginServiceGrpc;
+import com.example.learn.daos.UserRecord;
 import io.grpc.stub.StreamObserver;
 
 public class LoginServiceImp extends LoginServiceGrpc.LoginServiceImplBase {
@@ -15,8 +19,10 @@ public class LoginServiceImp extends LoginServiceGrpc.LoginServiceImplBase {
     }
 
     private LoginResponse checkLoginCredential(String username, String password) {
+        UserRecord userRecord = UserRecord.getInstance();
+
         LoginResponse.Builder responseBuilder = LoginResponse.newBuilder();
-        if (username.contentEquals("shuza") && password.contentEquals("123456")) {
+        if (userRecord.isUserMatch(username, password)) {
             responseBuilder.setResponseCode(200)
                     .setMessage("Login Success");
         } else {

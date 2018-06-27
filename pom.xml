@@ -24,6 +24,7 @@
             <artifactId>grpc-stub</artifactId>
             <version>1.12.0</version>
         </dependency>
+
     </dependencies>
 
     <build>
